@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:illume_app/data/feed/feed_cubit.dart';
+import 'package:illume_app/screens/home/widgets/profile_picture.dart';
 
 class IllumePost extends StatelessWidget {
   final Post data;
@@ -17,34 +18,39 @@ class IllumePost extends StatelessWidget {
       borderRadius: BorderRadius.circular(5),
       child: Container(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Image(image: data.poster.photo),
-                  IconButton(
-                    icon: Icon(Icons.favorite_outline_rounded),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.comment_rounded),
-                    onPressed: () {},
-                  ),
+                  ProfilePicture(data.poster.photo),
+                  Icon(Icons.favorite_outline_rounded, size: 20),
+                  Icon(Icons.comment_rounded, size: 20),
                 ],
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildHeaderBar(context, theme),
-                  SizedBox(height: 10),
-                  Text(
-                    data.content,
-                    style: theme.textTheme.bodyText1,
-                  ),
-                ],
+              Expanded(
+                flex: 8,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      data.poster.name.toUpperCase(),
+                      style: theme.textTheme.overline,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(3),
+                      child: SelectableText(
+                        // "yo",
+                        data.content,
+                        style: theme.textTheme.bodyText1,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

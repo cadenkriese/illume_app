@@ -2,76 +2,57 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:illume_app/data/feed/feed_cubit.dart';
-import 'package:illume_app/widgets/illume_post.dart';
-import 'package:illume_app/widgets/illume_logo.dart';
+import 'package:illume_app/screens/home/widgets/list_tiles.dart';
+import 'package:illume_app/screens/home/widgets/top_bar.dart';
 
-class Home extends StatelessWidget {
-  static DateTime now = DateTime.now();
+class Home extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _HomeState(0);
+}
+
+class _HomeState extends State<Home> {
+  final int index;
+  _HomeState(this.index);
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
-
     return Scaffold(
       body: RefreshIndicator(
-        onRefresh: () async {
-          //TODO refresh logic
-        },
+        //TODO refresh logic
+        onRefresh: () async {},
         child: SafeArea(
           child: CustomScrollView(
             slivers: [
-              topBar(now, context),
+              //TODO consider persistent appbar
+              TopBar(),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                  //TODO get from state
+                  child: Text("Castle Rock Office",
+                      style: Theme.of(context).textTheme.caption),
+                ),
+              ),
               BlocBuilder<FeedCubit, FeedState>(
                 value: FeedCubit()..load(),
-                builder: (context, state) {
-                  return SliverList(
-                    delegate: listTiles(state),
-                  );
-                },
+                builder: (context, state) => Feed(state),
               )
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Widget topBar(DateTime now, BuildContext context) {
-    return SliverAppBar(title: IllumeLogo(), actions: [
-      IconButton(
-          onPressed: () {
-            // TODO Consider how to add posts.
-          },
-          //TODO fix centering somehow
-          icon: Icon(Icons.add_circle_outline_rounded)
-          //TODO switch to custom icons.
-          // child: SvgPicture.asset(
-          //   // TODO make a local icons package
-          //   "assets/icon/add.svg",
-          //   //TODO use theme colors
-          //   color: CupertinoColors.activeBlue,
-          //   //TODO use lang
-          //   semanticsLabel: 'Add to feed.',
-          // ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            label: "Home",
+            icon: Icon(Icons.home_outlined),
           ),
-    ]);
-  }
-
-  SliverChildBuilderDelegate listTiles(FeedState state) {
-    return SliverChildBuilderDelegate(
-      (BuildContext context, int index) {
-        Post post = state.feed[index];
-
-        if (state == FeedState.loading()) {
-          return new CircularProgressIndicator();
-        }
-
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-          child: Container(child: IllumePost(data: post)),
-        );
-      },
-      childCount: state.feed.length,
+          BottomNavigationBarItem(
+            label: "Account",
+            icon: Icon(Icons.account_circle_outlined),
+          ),
+        ],
+      ),
     );
   }
 }
