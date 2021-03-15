@@ -30,11 +30,11 @@ class _HomeState extends State<Home> {
                   padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                   //TODO get from state
                   child: Text("Castle Rock Office",
-                      style: Theme.of(context).textTheme.caption),
+                      style: Theme.of(context).textTheme.headline6),
                 ),
               ),
               BlocBuilder<FeedCubit, FeedState>(
-                value: FeedCubit()..load(),
+                bloc: FeedCubit()..load(),
                 builder: (context, state) => Feed(state),
               )
             ],

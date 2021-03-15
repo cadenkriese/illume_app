@@ -4,10 +4,10 @@ import 'package:illume_app/widgets/illume_logo.dart';
 class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SliverAppBar(title: IllumeLogo(),
-     actions: [
+    return SliverAppBar(title: IllumeLogo(), actions: [
       IconButton(
           onPressed: () {
+            showAboutDialog(context: context);
             // TODO Consider how to add posts.
           },
           //TODO fix centering somehow

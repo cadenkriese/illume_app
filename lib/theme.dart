@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 //TODO consider creating custom theme classes
 class IllumeThemeData {
@@ -9,7 +10,8 @@ class IllumeThemeData {
   static final Color _lightFocusColor = Colors.black.withOpacity(0.12);
   static final Color _darkFocusColor = Colors.white.withOpacity(0.12);
 
-  static ThemeData lightThemeData = themeData(lightColorScheme, _lightFocusColor);
+  static ThemeData lightThemeData =
+      themeData(lightColorScheme, _lightFocusColor);
   static ThemeData darkThemeData = themeData(darkColorScheme, _darkFocusColor);
 
   static ThemeData themeData(ColorScheme colorScheme, Color focusColor) {
@@ -74,7 +76,6 @@ class IllumeThemeData {
     brightness: Brightness.dark,
   );
 
-
   static const _light = FontWeight.w300;
   static const _regular = FontWeight.w400;
   static const _medium = FontWeight.w500;
@@ -82,18 +83,31 @@ class IllumeThemeData {
   // static const _bold = FontWeight.w700;
 
   static final TextTheme _textTheme = TextTheme(
-    headline1: TextStyle(fontFamily: 'Quicksand', fontWeight: _light, fontSize: 98, letterSpacing: -1.5),
-    headline2: TextStyle(fontFamily: 'Quicksand', fontWeight: _light, fontSize: 61, letterSpacing: -0.5),
-    headline3: TextStyle(fontFamily: 'Quicksand', fontWeight: _regular, fontSize: 49, letterSpacing: 0.25),
-    headline4: TextStyle(fontFamily: 'Quicksand', fontWeight: _regular, fontSize: 35, letterSpacing: 0.25),
-    headline5: TextStyle(fontFamily: 'Quicksand', fontWeight: _regular, fontSize: 24, letterSpacing: 0),
-    headline6: TextStyle(fontFamily: 'Quicksand', fontWeight: _medium, fontSize: 20, letterSpacing: 0.15),
-    subtitle1: TextStyle(fontFamily: 'Quicksand', fontWeight: _regular, fontSize: 16, letterSpacing: 0.15),
-    subtitle2: TextStyle(fontFamily: 'Quicksand', fontWeight: _medium, fontSize: 14, letterSpacing: 0.1),
-    bodyText1: TextStyle(fontFamily: 'Roboto', fontWeight: _regular, fontSize: 16, letterSpacing: 0.5),
-    bodyText2: TextStyle(fontFamily: 'Roboto', fontWeight: _regular, fontSize: 14, letterSpacing: 0.25),
-    button: TextStyle(fontFamily: 'Roboto', fontWeight: _medium, fontSize: 14, letterSpacing: 1.25),
-    caption: TextStyle(fontFamily: 'Roboto', fontWeight: _regular, fontSize: 14, letterSpacing: 0.4),
-    overline: TextStyle(fontFamily: 'Roboto', fontWeight: _regular, fontSize: 10, letterSpacing: 1.5),
+    headline1: GoogleFonts.quicksand(
+        fontWeight: _light, fontSize: 98, letterSpacing: -1.5),
+    headline2: GoogleFonts.quicksand(
+        fontWeight: _light, fontSize: 61, letterSpacing: -0.5),
+    headline3: GoogleFonts.quicksand(
+        fontWeight: _regular, fontSize: 49, letterSpacing: 0.25),
+    headline4: GoogleFonts.quicksand(
+        fontWeight: _regular, fontSize: 35, letterSpacing: 0.25),
+    headline5: GoogleFonts.quicksand(
+        fontWeight: _regular, fontSize: 24, letterSpacing: 0),
+    headline6: GoogleFonts.quicksand(
+        fontWeight: _medium, fontSize: 20, letterSpacing: 0.15),
+    subtitle1: GoogleFonts.quicksand(
+        fontWeight: _regular, fontSize: 16, letterSpacing: 0.15),
+    subtitle2: GoogleFonts.quicksand(
+        fontWeight: _medium, fontSize: 14, letterSpacing: 0.1),
+    bodyText1: GoogleFonts.roboto(
+        fontWeight: _regular, fontSize: 16, letterSpacing: 0.5),
+    bodyText2: GoogleFonts.roboto(
+        fontWeight: _regular, fontSize: 14, letterSpacing: 0.25),
+    button: GoogleFonts.roboto(
+        fontWeight: _medium, fontSize: 14, letterSpacing: 1.25),
+    caption: GoogleFonts.roboto(
+        fontWeight: _regular, fontSize: 14, letterSpacing: 0.4),
+    overline: GoogleFonts.roboto(
+        fontWeight: _regular, fontSize: 10, letterSpacing: 1.5),
   );
 }

@@ -1,5 +1,5 @@
 name: illume_app
-description: illume is a new professional social media app for connecting with people who work from home.
+description: illume is a social networking app for connecting workers.
 publish_to: 'none'
 
 # The following defines the version and build number for your application.
@@ -18,20 +18,29 @@ environment:
   sdk: '>=2.12.0-0 <3.0.0'
 
 dependencies:
-  bloc: ^7.0.0-nullsafety.0
-  flutter_bloc: ^7.0.0-nullsafety.0
-  equatable: ^2.0.0-nullsafety.1
-  intl: ^0.17.0-nullsafety.2
-  flutter_svg: ^0.20.0-nullsafety.3
+  # State management
+  bloc: ^7.0.0-nullsafety.2
+  flutter_bloc: ^7.0.0-nullsafety.2
+  equatable: ^2.0.0-nullsafety.3
+  # Localization
+  intl: ^0.17.0
+  # Assets
+  flutter_svg: ^0.21.0-nullsafety.0
+  google_fonts: ^2.0.0-nullsafety.0
+  # Database & Services
+  firebase_core: ^1.0.0
+  firebase_auth: ^1.0.0
+  # SDK
   flutter:
     sdk: flutter
 
 dev_dependencies:
-  mockito: ^5.0.0-nullsafety.3
+  mockito: ^5.0.0-nullsafety.7
+  bloc_test: ^8.0.0-nullsafety.0
   flutter_test:
     sdk: flutter
-  integration_test:
-    sdk: flutter
+  # integration_test:
+  #   sdk: flutter
 
 # Flutter specific configuration
 flutter:
@@ -40,29 +49,3 @@ flutter:
     - assets/logo/
     - assets/icon/
     - assets/example/
-  fonts:
-    - family: Quicksand
-      fonts:
-        - asset: assets/font/Quicksand/static/Quicksand-Light.ttf
-          weight: 300
-        - asset: assets/font/Quicksand/static/Quicksand-Regular.ttf
-          weight: 400
-        - asset: assets/font/Quicksand/static/Quicksand-Medium.ttf
-          weight: 500
-        - asset: assets/font/Quicksand/static/Quicksand-SemiBold.ttf
-          weight: 600
-        - asset: assets/font/Quicksand/static/Quicksand-Bold.ttf
-          weight: 700
-    - family: Roboto
-      fonts:
-        - asset: assets/font/Roboto/Roboto-Light.ttf
-          weight: 300
-        - asset: assets/font/Roboto/Roboto-Italic.ttf
-          weight: 400
-          style: italic
-        - asset: assets/font/Roboto/Roboto-Regular.ttf
-          weight: 400
-        - asset: assets/font/Roboto/Roboto-Medium.ttf
-          weight: 500
-        - asset: assets/font/Roboto/Roboto-Bold.ttf
-          weight: 700
