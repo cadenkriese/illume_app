@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:illume_app/data/feed/feed_cubit.dart';
-import 'package:illume_app/screens/home/widgets/list_tiles.dart';
+import 'package:illume_app/data/feed.dart';
+import 'package:illume_app/screens/home/widgets/feed.dart';
 import 'package:illume_app/screens/home/widgets/top_bar.dart';
 
 class Home extends StatefulWidget {
@@ -27,15 +27,17 @@ class _HomeState extends State<Home> {
               TopBar(),
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                  padding: const EdgeInsets.fromLTRB(14, 0, 0, 0),
                   //TODO get from state
-                  child: Text("Castle Rock Office",
-                      style: Theme.of(context).textTheme.headline6),
+                  child: Text("Florence",
+                      style: Theme.of(context).textTheme.subtitle1),
                 ),
               ),
-              BlocBuilder<FeedCubit, FeedState>(
-                bloc: FeedCubit()..load(),
-                builder: (context, state) => Feed(state),
+              BlocProvider(
+                create: (BuildContext context) => FeedCubit()..load(),
+                child: BlocBuilder<FeedCubit, List<PostPreview>>(
+                  builder: (context, state) => Feed(state),
+                ),
               )
             ],
           ),

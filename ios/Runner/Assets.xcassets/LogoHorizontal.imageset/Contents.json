@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "illume-logo-horizontal.svg",
+      "filename" : "illume-banner-dark.svg",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "illume-logo-horizontal-light.svg",
+      "filename" : "illume-banner-light.svg",
       "idiom" : "universal"
     }
   ],

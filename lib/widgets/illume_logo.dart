@@ -6,14 +6,10 @@ class IllumeLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
 
-    return Row(
-      children: [
-        SvgPicture.asset(
-          "assets/logo/illume-logo-horizontal.svg",
-          color: theme.colorScheme.onBackground,
-          height: 20,
-        )
-      ],
+    return SvgPicture.asset(
+      "assets/logo/illume-banner.svg",
+      color: theme.colorScheme.onBackground,
+      height: 30,
     );
   }
 }

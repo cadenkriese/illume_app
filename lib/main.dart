@@ -13,6 +13,7 @@ class IllumeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'illume',
+      debugShowCheckedModeBanner: false,
       theme: IllumeThemeData.lightThemeData,
       darkTheme: IllumeThemeData.darkThemeData,
       home: Navigator(

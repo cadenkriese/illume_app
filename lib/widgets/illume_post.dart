@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:illume_app/data/feed/feed_cubit.dart';
+import 'package:illume_app/data/feed.dart';
+import 'package:illume_app/screens/home/widgets/like_button.dart';
+
+import 'package:illume_app/util/DurationFormat.dart';
 
 class IllumePost extends StatelessWidget {
-  final Post data;
+  final PostPreview data;
 
-  const IllumePost({Key? key, required this.data}) : super(key: key);
+  const IllumePost({required this.data});
+
+  //TODO consider abstracting shape icon and button to an IllumeCard class
 
   //TODO allow initialization with null data and have gray bars with loading
   // animations
@@ -15,47 +20,60 @@ class IllumePost extends StatelessWidget {
 
     return Container(
       child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CircleAvatar(
-                  radius: 12,
-                  foregroundImage: data.poster.photo,
-                ),
-                // Spacer(),
-                // ElevatedButton(
-                //   child: Icon(Icons.favorite_outline_rounded),
-                //   style: ButtonStyle(elevation: MaterialStateProperty.all(5)),
-                //   onPressed: () => {print("pressed")},
-                // )
-              ],
-            ),
-            SizedBox(width: 5),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
+        padding: const EdgeInsets.only(right: 20, top: 10, bottom: 10),
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    data.poster.name.toUpperCase(),
-                    style: theme.textTheme.overline,
+                  CircleAvatar(
+                    radius: 18,
+                    foregroundImage: data.poster.photo,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(3),
-                    child: SelectableText(
+                  Spacer(),
+                  LikeButton(data),
+                ],
+              ),
+              SizedBox(width: 5),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          data.poster.name,
+                          style: theme.textTheme.headline6,
+                        ),
+                        Text(
+                          DateTime.now().difference(data.postTime).compact(),
+                          style: theme.textTheme.subtitle2,
+                        )
+                      ],
+                    ),
+                    SizedBox(height: 5),
+                    SelectableText(
                       data.content,
                       style: theme.textTheme.bodyText1,
                     ),
-                  ),
-                ],
+                    //TODO bad code
+                    if (data.attachments.length > 0)
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: data.attachments[0],
+                        ),
+                      ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       decoration: BoxDecoration(

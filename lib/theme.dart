@@ -79,8 +79,8 @@ class IllumeThemeData {
   static const _light = FontWeight.w300;
   static const _regular = FontWeight.w400;
   static const _medium = FontWeight.w500;
-  // static const _semiBold = FontWeight.w600;
-  // static const _bold = FontWeight.w700;
+  static const _semiBold = FontWeight.w600;
+  static const _bold = FontWeight.w700;
 
   static final TextTheme _textTheme = TextTheme(
     headline1: GoogleFonts.quicksand(
@@ -94,15 +94,15 @@ class IllumeThemeData {
     headline5: GoogleFonts.quicksand(
         fontWeight: _regular, fontSize: 24, letterSpacing: 0),
     headline6: GoogleFonts.quicksand(
-        fontWeight: _medium, fontSize: 20, letterSpacing: 0.15),
+        fontWeight: _bold, fontSize: 20, letterSpacing: 0.15),
     subtitle1: GoogleFonts.quicksand(
-        fontWeight: _regular, fontSize: 16, letterSpacing: 0.15),
+        fontWeight: _medium, fontSize: 18, letterSpacing: 0.15),
     subtitle2: GoogleFonts.quicksand(
-        fontWeight: _medium, fontSize: 14, letterSpacing: 0.1),
+        fontWeight: _medium, fontSize: 16, letterSpacing: 0.1),
     bodyText1: GoogleFonts.roboto(
-        fontWeight: _regular, fontSize: 16, letterSpacing: 0.5),
+        fontWeight: _regular, fontSize: 20, letterSpacing: 0.5),
     bodyText2: GoogleFonts.roboto(
-        fontWeight: _regular, fontSize: 14, letterSpacing: 0.25),
+        fontWeight: _regular, fontSize: 18, letterSpacing: 0.25),
     button: GoogleFonts.roboto(
         fontWeight: _medium, fontSize: 14, letterSpacing: 1.25),
     caption: GoogleFonts.roboto(

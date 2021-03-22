@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:illume_app/data/feed/feed_cubit.dart';
+import 'package:illume_app/data/feed.dart';
 import 'package:illume_app/widgets/illume_post.dart';
 
 class Feed extends StatelessWidget {
-  const Feed(this._feedState);
-  final FeedState _feedState;
+  const Feed(this._feed);
+  final List<PostPreview> _feed;
 
   @override
   Widget build(BuildContext context) {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (BuildContext context, int index) {
-          Post post = _feedState.feed[index];
+          PostPreview post = _feed[index];
 
-          if (_feedState == FeedState.loading()) {
+          if (_feed.length == 0) {
             return new CircularProgressIndicator();
           }
 
           return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+            padding: const EdgeInsets.symmetric(vertical: 11, horizontal: 15),
             child: IllumePost(data: post),
           );
         },
-        childCount: _feedState.feed.length,
+        childCount: _feed.length,
       ),
     );
   }
