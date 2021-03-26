@@ -44,7 +44,7 @@ class FeedCubit extends Cubit<List<PostPreview>> {
   Future<void> load() async {
     // TODO get state from firebase.
     sleep(Duration(seconds: 3));
-    List<PostPreview> feed = [
+    List<PostPreview> mockFeed = [
       PostPreview(
         mockUsers[0],
         "Hi all, I'm proud to announce that I've joined Google as an engineer on their Flutter team!🤩 Unfortunately that means I'll be moving to San Francisco, I'll miss everyone in this office 😢 be sure to link with me to stay in touch!",
@@ -94,11 +94,10 @@ class FeedCubit extends Cubit<List<PostPreview>> {
         [],
       ),
     ];
-    emit(feed);
+    emit(mockFeed);
     return;
   }
 
-  //TODO should this not be here or something?
   Future<void> toggleLike(PostPreview post) async {
     List<PostPreview> feed = List.of(state);
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:illume_app/widgets/illume_logo.dart';
 
-class TopBar extends StatelessWidget {
+class HomeTopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(

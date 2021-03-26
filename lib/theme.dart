@@ -84,15 +84,15 @@ class IllumeThemeData {
 
   static final TextTheme _textTheme = TextTheme(
     headline1: GoogleFonts.quicksand(
-        fontWeight: _light, fontSize: 98, letterSpacing: -1.5),
+        fontWeight: _bold, fontSize: 42, letterSpacing: -1.5),
     headline2: GoogleFonts.quicksand(
-        fontWeight: _light, fontSize: 61, letterSpacing: -0.5),
+        fontWeight: _regular, fontSize: 38, letterSpacing: -0.5),
     headline3: GoogleFonts.quicksand(
-        fontWeight: _regular, fontSize: 49, letterSpacing: 0.25),
+        fontWeight: _bold, fontSize: 34, letterSpacing: 0.25),
     headline4: GoogleFonts.quicksand(
-        fontWeight: _regular, fontSize: 35, letterSpacing: 0.25),
+        fontWeight: _medium, fontSize: 34, letterSpacing: 0.25),
     headline5: GoogleFonts.quicksand(
-        fontWeight: _regular, fontSize: 24, letterSpacing: 0),
+        fontWeight: _semiBold, fontSize: 22, letterSpacing: 0),
     headline6: GoogleFonts.quicksand(
         fontWeight: _bold, fontSize: 20, letterSpacing: 0.15),
     subtitle1: GoogleFonts.quicksand(

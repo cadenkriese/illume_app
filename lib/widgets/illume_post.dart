@@ -77,27 +77,28 @@ class IllumePost extends StatelessWidget {
         ),
       ),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              theme.colorScheme.secondary,
-              theme.colorScheme.secondaryVariant,
-            ],
+        borderRadius: BorderRadius.circular(15),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            theme.colorScheme.secondary,
+            theme.colorScheme.secondaryVariant,
+          ],
+        ),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 16,
+            offset: Offset(0, 12),
+            color: theme.colorScheme.secondary.withOpacity(0.3),
           ),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 16,
-              offset: Offset(0, 12),
-              color: theme.colorScheme.secondary.withOpacity(0.3),
-            ),
-            BoxShadow(
-              blurRadius: 16,
-              offset: Offset(0, 14),
-              color: theme.colorScheme.secondaryVariant.withOpacity(0.3),
-            ),
-          ]),
+          BoxShadow(
+            blurRadius: 16,
+            offset: Offset(0, 14),
+            color: theme.colorScheme.secondaryVariant.withOpacity(0.3),
+          ),
+        ],
+      ),
     );
   }
 }
