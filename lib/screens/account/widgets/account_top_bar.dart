@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:illume_app/screens/settings/settings.dart';
 import 'package:illume_app/widgets/illume_logo.dart';
 
 class AccountTopBar extends StatelessWidget {
@@ -10,10 +11,9 @@ class AccountTopBar extends StatelessWidget {
         pinned: true,
         actions: [
           IconButton(
-              onPressed: () {
-                // showAboutDialog(context: context);
-                // TODO Show settings page
-              },
+              onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => Settings()),
+                  ),
               //TODO fix centering somehow
               icon: Icon(Icons.settings_rounded)
               //TODO switch to custom icons.

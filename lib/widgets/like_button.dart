@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:illume_app/data/feed.dart';
+import 'package:illume_app/data/post.dart';
 import 'package:intl/intl.dart';
 
 class LikeButton extends StatelessWidget {
   LikeButton(this.post);
-  final PostPreview post;
+  final Post post;
 
   @override
   Widget build(BuildContext context) {

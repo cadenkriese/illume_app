@@ -25,9 +25,13 @@ dependencies:
   # Assets
   flutter_svg: ^0.21.0-nullsafety.0
   google_fonts: ^2.0.0
+  image_picker: ^0.7.3
   # Localization
   intl: ^0.17.0
-  # Database & Services
+  # Business logic
+  fuzzy: ^0.4.0-nullsafety.0
+  url_launcher: ^6.0.3
+  share: ^2.0.1
   # firebase_core: ^1.0.0
   # firebase_auth: ^1.0.0
   # SDK
