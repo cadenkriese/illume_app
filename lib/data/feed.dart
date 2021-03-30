@@ -25,6 +25,7 @@ class FeedCubit extends Cubit<List<Post>> {
     emit(kMockFeed.where((element) => element.poster == user).toList());
   }
 
+  /// Toggles the current [User]'s status of liking a post.
   void toggleLike(Post post) async {
     List<Post> feed = List.of(state);
 
